@@ -4,6 +4,7 @@
 
 const cds = require('@sap/cds'),
 	app = require('express')(),
+	bodyParser = require('body-parser'),
 	{
 		PORT = 4004
 	} = process.env;
@@ -12,6 +13,14 @@ app.use((req, res, next) => {
 	console.log('REQUEST: ', req.url, req.method);
 	next();
 });
+
+// Enable this to show incoming headers and body.
+// However, using bodyParser.json() breaks any cds endpoint, so disable to run (manual) tests.
+// app.use(bodyParser.json(), (req, res, next) => {
+// 	console.log('HEADERS: ', JSON.stringify(req.headers));
+// 	console.log('BODY: ', JSON.stringify(req.body));
+// 	next();
+// });
 
 // connect to primary database if configured
 cds.connect(cds.env.requires.db || false);

@@ -25,7 +25,7 @@ describe('service', () => {
 			    	// Removing this line breaks the unit test with message:
 			    	//   An error occurred during serialization of the entity at
 			    	//   index #0 in the entity collection. Not nullable value for 'mRID' must not be null.
-			    	"content": "some data",
+			    	// "content": "some data",
 			        "C": [{
 			        	"content": "asldkj"
 			        }, {
